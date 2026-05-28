@@ -13,6 +13,11 @@ public class MethodsJunitTest {
             return false;
         }
         s = s.replace(" ","");
+        s = s.replace("!","");
+        s = s.replace("?","");
+        s = s.replace(".","");
+        if(s.length() == 1)
+            return false;
         StringBuilder sb = new StringBuilder(s);
         sb.reverse();
         String rev = sb.toString();
@@ -31,9 +36,11 @@ public class MethodsJunitTest {
         assertTrue(res);
         res = MethodsJunitTest.isPalindrome("242");
         assertTrue(res);
-        res = MethodsJunitTest.isPalindrome("Name now one man");
+        res = MethodsJunitTest.isPalindrome("Name now one man.");
         assertTrue(res);
         res = MethodsJunitTest.isPalindrome("\"Name now one man\"");
+        assertTrue(res);
+        res = MethodsJunitTest.isPalindrome("#$#");
         assertTrue(res);
 
         //negative tests -> false
@@ -50,15 +57,36 @@ public class MethodsJunitTest {
         res = MethodsJunitTest.isPalindrome("Level_");
         assertFalse(res);
 
-
-
-
     }
     @Test
     public void testInsertForm(){
-        //fail("Not yet implemented");
+        String res = MethodsJunitTest.insertFrom("Hello",5," world");
+        assertEquals("Hello world",res);
+
+        res = MethodsJunitTest.insertFrom("world",0,"Hello ");
+        assertEquals("Hello world",res);
     }
 
 }
-//    assertFalse(isPalindrome("hello"));
-//    assertTrue(isPalindrome("level"));
+
+/*
+TDD->
+HOME WORK
+
+1. class MethodsForTest
+      public static int parseAndSum(String s1,String s2){
+      return 0;
+}
+
+s1->   "12"                s2->"3"
+Integer.parseInt(s1);
+Integer.parseInt(s2);
+12+3 = 15
+return 15
+
+in case any error if s1 or s2 null or "" or " " or "abc" -> return 0
+
+Create tests!
+
+
+ */
