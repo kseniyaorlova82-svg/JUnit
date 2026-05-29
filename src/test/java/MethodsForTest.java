@@ -35,8 +35,31 @@ public class MethodsForTest {
             int[] array,
             int indexFirst,
             int indexSecond) {
+if (array == null || array.length == 0
+                ||indexFirst < 0
+                ||indexSecond < 0
+                ||indexSecond >= array.length
+                ||indexSecond >= array.length)
 
         return null;
+
+        if (array[indexFirst]==Integer.MAX_VALUE && array[indexSecond]> 0)
+            return null;
+        if (array[indexSecond]==Integer.MAX_VALUE && array[indexFirst]> 0)
+            return null;
+        if (array[indexFirst]==Integer.MIN_VALUE && array[indexSecond]< 0)
+            return null;
+        if (array[indexSecond]==Integer.MIN_VALUE && array[indexFirst]< 0)
+            return null;
+        return array[indexFirst] + array[indexSecond];
+
+
+
+
+
+
+
+
 /*
          0  1  2  3  4  5      indexFirst = 2 indexSecond = 4
 array-> [9][2][7][1][4][8]
